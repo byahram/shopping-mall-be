@@ -5,8 +5,8 @@ const userSchema = Schema(
   {
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    name: { type: true, required: true },
-    level: { type: String, default: "customer" }, // 2 types: customer, admin
+    name: { type: String, required: true },
+    level: { type: String, default: "customer" }, // 2 types : customer, admin
   },
   { timestamps: true }
 );
@@ -15,8 +15,8 @@ userSchema.methods.toJSON = function () {
   const obj = this._doc;
   delete obj.password;
   delete obj.__v;
-  delete obj.updateAt;
-  delete obj.createAt;
+  delete obj.updatedAt;
+  delete obj.createdAt;
   return obj;
 };
 
